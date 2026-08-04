@@ -61,7 +61,7 @@ const reasons: { title: string; description: string; icon: LucideIcon }[] = [
 const steps: { title: string; description: string; icon: LucideIcon }[] = [
   { title: "1. Keenida Dukumentiga iyo Aqoonsiga", description: "Keen dukumentiga asalka ah, aqoonsiga sawirka leh ama sugiyaasha (markhaatiyada) xafiiskayaga Baydhabo ku yaal ama ballan ku qabso.", icon: FileCheck2 },
   { title: "2. Booqashada Goobta iyo GPS-ka", description: "Haddii adeeggu yahay dhul ama hanti maguurto ah, kooxdayadu waxay booqataa goobta si loo cabbiro oo loo qaado xogta GPS-ka.", icon: MapPin },
-  { title: "3. Hubinta Sharciga iyo Saxiixyada", description: "Nootaayadu waxay si taxaddar leh u hubisaa milkiyadda, aqoonsiga dhinacyada iyo saxiixyada sharciga ah ee heshiiska ama araajida.", icon: FileSignature },
+  { title: "3. Diyaarinta, Qorista iyo Hubinta Sharciga", description: "Nootaayadu waxay qortaa oo diyaarisaa dukumentiga sharciga ah, iyadoo si taxaddar leh u hubisa milkiyadda, aqoonsiyada iyo saxiixyada dhinacyada.", icon: FileSignature },
   { title: "4. Shaabadaynta, Diiwaanka iyo QR-ka", description: "Dukumentiga waxaa la saaraa shaabadda rasmiga ah, la diiwaangeliyaa, waxaana la siiyaa lambar tixraac iyo Koodhka QR-ka ee xaqiijinta.", icon: Stamp },
 ];
 
