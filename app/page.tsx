@@ -48,21 +48,21 @@ const requirements: { title: string; icon: LucideIcon; items: string[] }[] = [
 ];
 
 const reasons: { title: string; description: string; icon: LucideIcon }[] = [
-  { title: "Adeeg Sharci oo Lagu Kalsoon Yahay", description: "Habraac cad oo mas'uuliyad leh ayaa loo maraa adeeg kasta.", icon: ShieldCheck },
-  { title: "Adeeg Degdeg Ah", description: "Waqtigaaga waan dhowrnaa, tayadana kama tanaasulno.", icon: Clock3 },
-  { title: "Dukumentiyo Sugan", description: "Dukumentiyadaada waxaan si sugan u xafidnaa.", icon: LockKeyhole },
-  { title: "Shaqaale Khibrad Leh", description: "Waxaad ka helaysaa hagid sharci iyo ixtiraam sare.", icon: UserRoundCheck },
-  { title: "Xaqiijin Casri Ah", description: "Dukumentiyada waxaad ku xaqiijin kartaa tixraac ama Koodhka QR-ka.", icon: ScanLine },
-  { title: "Habraac Rasmi Ah", description: "Adeegyada oo dhan waxaa lagu fuliyaa si sharciga waafaqsan.", icon: Landmark },
-  { title: "Ilaalinta Sirta", description: "Xogtaada waxaan u xafidnaa si qarsoodi ah.", icon: Shield },
-  { title: "Taageero Joogto Ah", description: "Waan ku garab taagannahay ka hor iyo ka dib adeegga.", icon: Headphones },
+  { title: "Adeeg Sharci oo Lagu Kalsoon Yahay", description: "Adeeg kasta oo aan bixinno wuxuu ku dhisnaan yahay mas'uuliyad iyo sharci-fulin toos ah.", icon: ShieldCheck },
+  { title: "Dhammaystir Degdeg Ah", description: "Waan dhowrnaa waqtigaaga macnaha leh, tayada adeeggana kama tanaasulno.", icon: Clock3 },
+  { title: "Xafidaad iyo Dhowrid Sugan", description: "Dukumentiyadaada iyo warqadahaaga rasmiga ah waxaan u xafidnaa si sugan.", icon: LockKeyhole },
+  { title: "Koox Sharci oo Khibrad Leh", description: "Waxaad ka helaysaa la-talin sharci, hagid toos ah iyo ixtiraam sare.", icon: UserRoundCheck },
+  { title: "Xaqiijinta Nidaamka Casriga Ah", description: "Dukumenti kasta waxaad ku xaqiijin kartaa lambarkiisa tixraaca ama Koodhka QR-ka.", icon: ScanLine },
+  { title: "Habraac Sharci oo Rasmi Ah", description: "Dhawrida heshiisyada iyo mucaamalaadka oo dhan waxaa loo fuliyaa si sharciga waafaqsan.", icon: Landmark },
+  { title: "Ilaalinta iyo Dhowrida Sirta", description: "Xogtaada iyo dukumentiyadaada waxaan u xafidnaa si qarsoodi ah oo ammaan ah.", icon: Shield },
+  { title: "Garab-staag iyo Taageero Joogto Ah", description: "Waan ku garab taagannahay ka hor, inta lagu jiro iyo ka dib dhammaystirka adeegga.", icon: Headphones },
 ];
 
 const steps: { title: string; description: string; icon: LucideIcon }[] = [
-  { title: "Nala Soo Xiriir", description: "Dooro nooca adeegga oo ballan ku qabso khadka intarneedka ama telefoonka.", icon: CalendarCheck2 },
-  { title: "Keen Dukumentiga", description: "Soo qaad dukumentiga asalka ah iyo aqoonsi sax ah oo aad u keen xafiiskayaga.", icon: FileCheck2 },
-  { title: "Hubinta iyo Saxiixa", description: "Waxaan si taxaddar leh u hubinaa dukumentiyada, ka dibna si rasmi ah u saxiixnaa.", icon: FileSignature },
-  { title: "Xaqiijinta iyo Diiwaangelinta", description: "Waxaad helaysaa lambar tixraac iyo koodhka QR-ka oo aad mustaqbalka ku xaqiijin karto.", icon: Stamp },
+  { title: "1. Nala Soo Xiriir", description: "Dooro nooca adeegga aad u baahan tahay, ka dibna ballan ku qabso khadka intarneedka ama telefoonka.", icon: CalendarCheck2 },
+  { title: "2. Keenida Dukumentiyada", description: "Soo qaad dukumentiga asalka ah (Original) iyo aqoonsigaaga rasmiga ah, oo u keen xafiiskayaga.", icon: FileCheck2 },
+  { title: "3. Hubinta iyo Saxiixa", description: "Waxaan si taxaddar leh u hubinaynaa sharciga iyo dhinacyada, ka dibna si rasmi ah u saxiixaynaa.", icon: FileSignature },
+  { title: "4. Xaqiijinta iyo Diiwaangelinta", description: "Waxaad helaysaa lambar tixraac ah iyo Koodhka QR-ka oo aad mustaqbalka ku xaqiijin karto dukumentiga.", icon: Stamp },
 ];
 
 const faqs = [
@@ -257,7 +257,7 @@ export default function Home() {
       </section>
 
       <section className="section process-section">
-        <SectionHeading eyebrow="SIDA AY U SHAQEYSO" title="Afar tallaabo oo fudud oo la fahmi karo" copy="Habraacyada Marwaaz waxay u dhisan yihiin si aad tallaabo kasta ugu kalsoonaato." index="02" />
+        <SectionHeading eyebrow="HABRAACA ADEEGGA" title="Afar Tallaabo oo Fudud oo Adeegga Lagu Helo" copy="Habraaca shaqo ee Nootaayada Marwaaz wuxuu u dhisan yahay si hufan oo aad tallaabo kasta ugu kalsoonaato." index="02" />
         <div className="process-grid">{steps.map((step, index) => { const Icon = step.icon; return <motion.div className="process-step" key={step.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ delay: index * 0.1, duration: 0.45 }}><span className="process-number">{String(index + 1).padStart(2, "0")}</span><span className="process-icon"><Icon size={22} /></span><h3>{step.title}</h3><p>{step.description}</p></motion.div>; })}</div>
       </section>
 
@@ -280,7 +280,7 @@ export default function Home() {
 
       <section className="stats-section" aria-label="Tirakoobka Marwaaz"><div className="stats-copy"><span className="eyebrow light"><span />ADEEG LA AQOONSAN YAHAY</span><h2>Kalsooni lagu dhisay kumanaan dukumenti oo la xaqiijiyey.</h2></div><div className="stats-grid"><StatCounter value={5000} suffix="+" label="Dukumentiyo la xaqiijiyey" /><StatCounter value={1500} suffix="+" label="Macaamiil qanacsan" /><StatCounter value={15} suffix="+" label="Adeegyo xirfadeed" /><StatCounter value={99} suffix="%" label="Qanacsanaanta macaamiishta" /></div></section>
 
-      <section className="section choose-section"><SectionHeading eyebrow="MAXAA MARWAAZ LOO DOORTAA?" title="Heer cusub oo adeeg nootaayo ah" copy="Kalsoonida sharciga ah waxay ka dhalataa habraac joogto ah, dukumentiyo sugan iyo xiriir cad oo lala yeesho macmiilka." align="left" index="04" /><div className="reason-grid">{reasons.map((reason, index) => { const Icon = reason.icon; return <motion.article key={reason.title} className="reason-card" initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: (index % 4) * 0.07 }}><span><Icon size={21} /></span><div><h3>{reason.title}</h3><p>{reason.description}</p></div></motion.article>; })}</div></section>
+      <section className="section choose-section"><SectionHeading eyebrow="MAXAA MARWAAZ LOO DOORTAA?" title="Heer Sare Oo Adeeg Sharci Iyo Nootaayo Ah" copy="Kalsoonida sharciga ah waxay ka dhalataa habraac nidaamsan, xaqiijin sugan iyo ixtiraam sare oo macmiil kasta loo hayo." align="left" index="04" /><div className="reason-grid">{reasons.map((reason, index) => { const Icon = reason.icon; return <motion.article key={reason.title} className="reason-card" initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: (index % 4) * 0.07 }}><span><Icon size={21} /></span><div><h3>{reason.title}</h3><p>{reason.description}</p></div></motion.article>; })}</div></section>
 
       <section id="verify" className="section verification-section">
         <div className="verification-copy"><span className="eyebrow light"><span />XAQIIJINTA CASRIGA AH</span><h2>Hubi saxnimada dukumentiga ilbiriqsiyo gudahood.</h2><p>Geli lambarka tixraaca ee ku qoran dukumentiga Marwaaz. Nidaamku wuxuu kuu sheegayaa in dukumentigu diiwaangashan yahay iyo xaaladdiisa rasmiga ah.</p><ul><li><CheckCircle2 size={18} />Natiijo degdeg ah</li><li><CheckCircle2 size={18} />Diiwaan QR leh</li><li><CheckCircle2 size={18} />Tixraac ammaan ah</li></ul><div className="demo-reference"><span>Tixraac tijaabo ah</span><button onClick={() => setVerificationRef("MNP-2026-04141")}>MNP-2026-04141</button></div></div>
