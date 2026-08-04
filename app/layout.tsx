@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(origin),
     title: "Marwaaz Public Notary | Baidoa, Somalia",
-    description: "Adeegyada nootaayada, kala wareejinta hantida, diyaarinta heshiisyada iyo mucaamalaadka sharciga ee Baydhabo, Soomaaliya.",
+    description: "Adeegyada nootaayada rasmiga ah, kala wareejinta hantida, diyaarinta heshiisyada iyo mucaamalaadka sharciga ah ee Baydhabo, Soomaaliya.",
     keywords: ["public notary Baidoa", "notary Somalia", "document authentication", "contract notarization", "certified copies"],
     alternates: { canonical: origin },
     icons: { icon: "/logo.png", shortcut: "/logo.png", apple: "/logo.png" },
