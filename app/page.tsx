@@ -257,7 +257,7 @@ export default function Home() {
       </section>
 
       <section className="section process-section">
-        <SectionHeading eyebrow="HABRAACA ADEEGGA" title="Afar Tallaabo oo Fudud oo Adeegga Lagu Helo" copy="Habraaca shaqo ee Nootaayada Marwaaz wuxuu u dhisan yahay si hufan oo aad tallaabo kasta ugu kalsoonaato." index="02" />
+        <SectionHeading eyebrow="HABRAACA ADEEGGA" title="Afar Tallaabo oo Fudud oo Nootaayadu Qaaddo" copy="Habraaca shaqo ee Nootaayada Marwaaz wuxuu u dhisan yahay si hufan oo aad tallaabo kasta ugu kalsoonaato." index="02" />
         <div className="process-grid">{steps.map((step, index) => { const Icon = step.icon; return <motion.div className="process-step" key={step.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ delay: index * 0.1, duration: 0.45 }}><span className="process-number">{String(index + 1).padStart(2, "0")}</span><span className="process-icon"><Icon size={22} /></span><h3>{step.title}</h3><p>{step.description}</p></motion.div>; })}</div>
       </section>
 
