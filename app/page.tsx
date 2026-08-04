@@ -17,18 +17,16 @@ import {
 } from "lucide-react";
 
 const services: { title: string; description: string; icon: LucideIcon }[] = [
-  { title: "Document Authentication", description: "Official validation of documents for trusted local and international use.", icon: FileCheck2 },
-  { title: "Contract Notarization", description: "Careful review and notarization of binding personal and commercial contracts.", icon: FileSignature },
-  { title: "Property Documentation", description: "Secure preparation and certification of property and land documentation.", icon: Building2 },
-  { title: "Power of Attorney", description: "Accurate drafting and authentication of general or special legal authority.", icon: KeyRound },
-  { title: "Affidavits", description: "Professionally prepared and witnessed sworn statements for official use.", icon: ScrollText },
-  { title: "Business Agreements", description: "Reliable certification of partnership, supplier, and business agreements.", icon: Handshake },
-  { title: "Company Documents", description: "Notarial support for incorporation, resolutions, and corporate records.", icon: BriefcaseBusiness },
-  { title: "Family Legal Documents", description: "Confidential handling of consent forms, declarations, and family records.", icon: UsersRound },
-  { title: "Certified Copies", description: "True-copy certification that preserves the legal value of original records.", icon: Files },
-  { title: "Signature Verification", description: "Identity checks and witnessed signatures for documents that matter.", icon: BadgeCheck },
-  { title: "Translation Certification", description: "Certification of translated documents for formal submission and review.", icon: Languages },
-  { title: "Legal Consultation", description: "Clear, practical guidance on documentation and notarial procedures.", icon: Scale },
+  { title: "Kala Wareejinta Guryaha iyo Beeraha", description: "Diyaarinta iyo sugidda dukumentiyada kala wareejinta guryaha iyo beeraha.", icon: Building2 },
+  { title: "Kala Wareejinta Baabuurta iyo Dhulalka", description: "Habaynta heshiisyada iyo caddeymaha lahaanshaha baabuurta iyo dhulalka.", icon: Landmark },
+  { title: "Kala Wareejinta Hantida Guurtada iyo Maguurtada", description: "Sugidda wareejinta hantida guurta iyo tan maguurtada ah si sharci waafaqsan.", icon: BriefcaseBusiness },
+  { title: "Kala Wareejinta Hantida Sharciyeysan", description: "Diiwaangelin iyo xaqiijin rasmi ah oo loo sameeyo hantida sharciyeysan.", icon: ShieldCheck },
+  { title: "Kala Wareejinta Saamiyada Shirkadaha", description: "Diyaarinta dukumentiyada wareejinta saamiyada iyo xuquuqda shirkadaha.", icon: UsersRound },
+  { title: "Qorista iyo Diyaarinta Araaji'da Dacwooyinka", description: "Qorista araajida dacwooyinka si hufan oo waafaqsan habraaca sharciga.", icon: ScrollText },
+  { title: "Qorista Mucaamalaadka", description: "Qorista iyo habaynta mucaamalaadka rasmiga ah ee shaqsiyaadka iyo hay'adaha.", icon: FileSignature },
+  { title: "Diyaarinta iyo Sugidda Heshiisyada Sharciga Waafaqsan", description: "Diyaarinta heshiisyo cad oo ilaalinaya xuquuqda dhammaan dhinacyada.", icon: Handshake },
+  { title: "Diyaarinta iyo Sugidda Lahaanshaha iyo Isla Lahaanshaha", description: "Caddeynta lahaanshaha ama isla lahaanshaha hanti si rasmi ah.", icon: Files },
+  { title: "Diyaarinta iyo Sugidda Damaanadaha Sharciga Waafaqsan", description: "Qorista iyo xaqiijinta damaanado leh awood sharciyeed oo cad.", icon: BadgeCheck },
 ];
 
 const reasons: { title: string; description: string; icon: LucideIcon }[] = [
@@ -158,7 +156,7 @@ export default function Home() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Marwaaz Public Notary home"><span className="brand-mark"><Stamp size={22} strokeWidth={1.8} /></span><span><strong>MARWAAZ</strong><small>PUBLIC NOTARY</small></span></a>
+        <a className="brand" href="#top" aria-label="Marwaaz Public Notary home"><span className="brand-mark"><img src="/logo.png" alt="" /></span><span><strong>MARWAAZ</strong><small>PUBLIC NOTARY</small></span></a>
         <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Main navigation">
           {[["About", "about"], ["Services", "services"], ["Verify", "verify"], ["Team", "team"], ["Contact", "contact"]].map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}
           <a className="nav-appointment" href="#appointment" onClick={() => setMenuOpen(false)}>Book appointment</a>
@@ -192,8 +190,8 @@ export default function Home() {
       </section>
 
       <section id="services" className="section section-tint">
-        <SectionHeading eyebrow="OUR EXPERTISE" title="Notarial services for life and business" copy="From a single certified copy to complex property or company records, each service is handled with the same disciplined attention." />
-        <div className="service-grid">{services.map((service, index) => { const Icon = service.icon; return <motion.article className="service-card" key={service.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ delay: (index % 4) * 0.06, duration: 0.45 }} whileHover={{ y: -7 }}><div className="service-icon"><Icon size={24} /></div><h3>{service.title}</h3><p>{service.description}</p><a href="#appointment">Learn more <ArrowRight size={14} /></a></motion.article>; })}</div>
+        <SectionHeading eyebrow="ADEEGYADA NOOTAAYADA" title="Adeegyo sharciyeed oo lagu kalsoonaan karo" copy="Waxaan si xirfad, hufnaan iyo masuuliyad leh u diyaarinnaa una sugnaa mucaamalaadka, heshiisyada iyo kala wareejinta hantida." />
+        <div className="service-grid">{services.map((service, index) => { const Icon = service.icon; return <motion.article className="service-card" key={service.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ delay: (index % 4) * 0.06, duration: 0.45 }} whileHover={{ y: -7 }}><div className="service-icon"><Icon size={24} /></div><h3>{service.title}</h3><p>{service.description}</p><a href="#appointment">Faahfaahin <ArrowRight size={14} /></a></motion.article>; })}</div>
       </section>
 
       <section className="stats-section" aria-label="Marwaaz statistics"><div className="stats-copy"><span className="eyebrow light"><span />PROVEN SERVICE</span><h2>Built on thousands of moments of trust.</h2></div><div className="stats-grid"><StatCounter value={5000} suffix="+" label="Documents authenticated" /><StatCounter value={1500} suffix="+" label="Satisfied clients" /><StatCounter value={15} suffix="+" label="Professional services" /><StatCounter value={99} suffix="%" label="Client satisfaction" /></div></section>
@@ -232,7 +230,7 @@ export default function Home() {
 
       <section id="contact" className="contact-section"><div className="contact-map"><iframe title="Map showing Baidoa, Somalia" src="https://www.google.com/maps?q=Baidoa%2C%20Somalia&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div><div className="contact-panel"><span className="eyebrow light"><span />VISIT MARWAAZ</span><h2>Professional notary service, right here in Baidoa.</h2><div className="contact-list"><div><MapPin /><span><small>Office</small><strong>Marwaaz Public Notary</strong><p>Baidoa, Somalia</p></span></div><div><Phone /><span><small>Phone</small><a href="tel:+252617414141">+252 617 414141</a></span></div><div><Clock3 /><span><small>Working hours</small><strong>Saturday – Thursday</strong><p>7:30 AM – 7:30 PM</p></span></div></div><div className="contact-actions"><a className="button button-gold" href="tel:+252617414141"><Phone size={17} />Call now</a><a className="button button-ghost" href="https://wa.me/252617414141" target="_blank" rel="noreferrer"><MessageCircle size={17} />WhatsApp</a><a className="button button-ghost" href="https://maps.google.com/?q=Baidoa,Somalia" target="_blank" rel="noreferrer"><Navigation size={17} />Directions</a></div></div></section>
 
-      <footer><div className="footer-main"><div className="footer-brand"><a className="brand" href="#top"><span className="brand-mark"><Stamp size={22} /></span><span><strong>MARWAAZ</strong><small>PUBLIC NOTARY</small></span></a><p>Trusted legal authentication and notarial services for individuals, businesses, and institutions in Baidoa.</p><div className="social-links"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div></div><div><h3>Quick links</h3><a href="#about">About us</a><a href="#services">Services</a><a href="#team">Our team</a><a href="#contact">Contact</a></div><div><h3>Client services</h3><a href="#appointment">Appointments</a><a href="#verify">Document verification</a><a href="#services">Certified copies</a><a href="#services">Legal consultation</a></div><div><h3>Contact</h3><span>Baidoa, Somalia</span><a href="tel:+252617414141">+252 617 414141</a><span>Sat – Thu, 7:30 AM – 7:30 PM</span></div></div><div className="footer-bottom"><span>© 2026 Marwaaz Public Notary. All Rights Reserved.</span><div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div></footer>
+      <footer><div className="footer-main"><div className="footer-brand"><a className="brand" href="#top"><span className="brand-mark"><img src="/logo.png" alt="" /></span><span><strong>MARWAAZ</strong><small>PUBLIC NOTARY</small></span></a><p>Trusted legal authentication and notarial services for individuals, businesses, and institutions in Baidoa.</p><div className="social-links"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div></div><div><h3>Quick links</h3><a href="#about">About us</a><a href="#services">Services</a><a href="#team">Our team</a><a href="#contact">Contact</a></div><div><h3>Client services</h3><a href="#appointment">Appointments</a><a href="#verify">Document verification</a><a href="#services">Certified copies</a><a href="#services">Legal consultation</a></div><div><h3>Contact</h3><span>Baidoa, Somalia</span><a href="tel:+252617414141">+252 617 414141</a><span>Sat – Thu, 7:30 AM – 7:30 PM</span></div></div><div className="footer-bottom"><span>© 2026 Marwaaz Public Notary. All Rights Reserved.</span><div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div></footer>
     </main>
   );
 }
