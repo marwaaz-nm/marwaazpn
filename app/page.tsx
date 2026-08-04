@@ -59,10 +59,10 @@ const reasons: { title: string; description: string; icon: LucideIcon }[] = [
 ];
 
 const steps: { title: string; description: string; icon: LucideIcon }[] = [
-  { title: "1. Nala Soo Xiriir", description: "Dooro nooca adeegga aad u baahan tahay, ka dibna ballan ku qabso khadka intarneedka ama telefoonka.", icon: CalendarCheck2 },
-  { title: "2. Keenida Dukumentiyada", description: "Soo qaad dukumentiga asalka ah (Original) iyo aqoonsigaaga rasmiga ah, oo u keen xafiiskayaga.", icon: FileCheck2 },
-  { title: "3. Hubinta iyo Saxiixa", description: "Waxaan si taxaddar leh u hubinaynaa sharciga iyo dhinacyada, ka dibna si rasmi ah u saxiixaynaa.", icon: FileSignature },
-  { title: "4. Xaqiijinta iyo Diiwaangelinta", description: "Waxaad helaysaa lambar tixraac ah iyo Koodhka QR-ka oo aad mustaqbalka ku xaqiijin karto dukumentiga.", icon: Stamp },
+  { title: "1. Keenida Dukumentiga iyo Aqoonsiga", description: "Keen dukumentiga asalka ah, aqoonsiga sawirka leh ama sugiyaasha (markhaatiyada) xafiiskayaga Baydhabo ku yaal ama ballan ku qabso.", icon: FileCheck2 },
+  { title: "2. Booqashada Goobta iyo GPS-ka", description: "Haddii adeeggu yahay dhul ama hanti maguurto ah, kooxdayadu waxay booqataa goobta si loo cabbiro oo loo qaado xogta GPS-ka.", icon: MapPin },
+  { title: "3. Hubinta Sharciga iyo Saxiixyada", description: "Nootaayadu waxay si taxaddar leh u hubisaa milkiyadda, aqoonsiga dhinacyada iyo saxiixyada sharciga ah ee heshiiska ama araajida.", icon: FileSignature },
+  { title: "4. Shaabadaynta, Diiwaanka iyo QR-ka", description: "Dukumentiga waxaa la saaraa shaabadda rasmiga ah, la diiwaangeliyaa, waxaana la siiyaa lambar tixraac iyo Koodhka QR-ka ee xaqiijinta.", icon: Stamp },
 ];
 
 const faqs = [
