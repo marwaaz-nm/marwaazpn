@@ -72,7 +72,7 @@ const faqs = [
   ],
   [
     "Sidee dhulkayga ugu samaysan karaa Sabarloog ka soo baxda Dowladda Hoose?",
-    "Si dhulkaaga laguugu sameeyo Sabarloog, Nootaayada Marwaaz ayaa kuu qoraysa warqad lagu sugayo dhulka haddii aadan haysan warqad sharci ah oo nootaayeysan, ka dibna Dowladda Hoose kaaga dalbaysa Sabarloogga."
+    "Si dhulkaaga laguugu sameeyo Sabarloog, Nootaayo Marwaaz ayaa kuu qoraysa warqad lagu sugayo dhulka haddii aadan haysan warqad sharci ah oo nootaayeysan, ka dibna Dowladda Hoose kaaga dalbaysa Sabarloogga."
   ],
   [
     "Intee muddo ah ayay qaadataa dhammaystirka adeegyada Nootaayada?",
@@ -83,8 +83,8 @@ const faqs = [
     "Nootaayadu waxay ku taallaa nawaaxiga Ex-Dahabshiil, ka soo horjeedka Huteel Baydhabo."
   ],
   [
-    "Nootaayada Marwaaz ma leedahay aqoonsi iyo leysan sharci ah?",
-    "Haa. Nootaayada Marwaaz waxay ka diiwaangashan tahay Wasaaradda Caddaaladda iyo Arrimaha Dastuurka ee Dowladda Federaalka Soomaaliya, iyo Wasaaradda Caddaaladda ee Dowladda Koonfur Galbeed Soomaaliya. Xafiisku wuxuu si rasmi ah u shaqaynayay tan iyo sannadkii 2022."
+    "Nootaayo Marwaaz ma leedahay aqoonsi iyo leysan sharci ah?",
+    "Haa. Nootaayo Marwaaz waxay ka diiwaangashan tahay Wasaaradda Caddaaladda iyo Arrimaha Dastuurka ee Dowladda Federaalka Soomaaliya, iyo Wasaaradda Caddaaladda ee Dowladda Koonfur Galbeed Soomaaliya. Xafiisku wuxuu si rasmi ah u shaqaynayay tan iyo sannadkii 2022."
   ],
 ];
 
@@ -201,12 +201,12 @@ export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Notary",
-    name: "Nootaayada Marwaaz Baydhabo",
+    name: "Nootaayo Marwaaz Baydhabo",
     alternateName: ["Marwaaz Public Notary", "Nootaayo Marwaaz", "Nootaayada Ugu Fiican Baydhabo", "Marwaaz Notary"],
     url: "https://marwaazpn.com",
     logo: "https://marwaazpn.com/logo.png",
     image: "https://marwaazpn.com/og.png",
-    description: "Nootaayada Marwaaz waa nootaayada ugu fiican Baydhabo. Waxaan bixinnaa adeegyada rasmiga ah ee nootaayada, kala wareejinta hantida, dhulka, baabuurta iyo heshiisyada sharciga ah ee Baydhabo, Soomaaliya.",
+    description: "Nootaayo Marwaaz waa nootaayada ugu fiican Baydhabo. Waxaan bixinnaa adeegyada rasmiga ah ee nootaayada, kala wareejinta hantida, dhulka, baabuurta iyo heshiisyada sharciga ah ee Baydhabo, Soomaaliya.",
     telephone: "+252617414141",
     sameAs: [
       "https://www.facebook.com/share/1DdrxRCNqt/"
@@ -258,7 +258,7 @@ export default function Home() {
         <motion.div className="hero-content" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
           <motion.div className="trust-chip" variants={fadeUp}><BadgeCheck size={17} /> Rasmi • Sugan • Lagu Kalsoonaan Karo</motion.div>
           <motion.p className="hero-kicker" variants={fadeUp}>Nootaayada Dadweynaha · Baydhabo, Soomaaliya · Tan iyo 2022</motion.p>
-          <motion.h1 variants={fadeUp}>Nootaayada Marwaaz.<br /><em>Xuquuqdaada. Kalsoonidaada.</em></motion.h1>
+          <motion.h1 variants={fadeUp}>Nootaayo Marwaaz.<br /><em>Xuquuqdaada. Kalsoonidaada.</em></motion.h1>
           <motion.p className="hero-copy" variants={fadeUp}>Waxaan si sharci waafaqsan u diyaarinaa, u xaqiijinnaa una sugnaa heshiisyada, kala wareejinta hantida iyo mucaamalaadka muhiimka ah.</motion.p>
           <motion.div className="hero-actions" variants={fadeUp}><a className="button button-gold" href="#nala-xiriir"><Phone size={19} />Nala Soo Xiriir</a><a className="button button-ghost" href="#verify"><QrCode size={19} />Xaqiiji Dukumenti</a></motion.div>
         </motion.div>
@@ -281,7 +281,7 @@ export default function Home() {
         <div className="about-visual"><motion.div className="about-image" initial={{ opacity: 0, x: -35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.75 }}><img src="/image1.png" alt="Kaydka dukumentiyada Marwaaz Public Notary" /><div className="experience-card"><strong>Rasmi</strong><span>Dukumentiyo si taxaddar leh loo sugo</span></div></motion.div></div>
         <motion.div className="about-copy" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
           <motion.span className="eyebrow" variants={fadeUp}><span />NAGU SAABSAN</motion.span><motion.h2 variants={fadeUp}>Saxiix kasta waa saxnaan.<br />Dukumenti kasta waa kalsooni.</motion.h2><motion.p variants={fadeUp}>Marwaaz Public Notary waxay adeegyo nootaayo oo rasmi ah siisaa shaqsiyaadka, ganacsiyada, hay'adaha iyo ururrada. Ujeedkeennu waa in dukumenti kasta loo diyaariyo loona xaqiijiyo si sax ah, sugan oo sharciga waafaqsan.</motion.p>
-          <motion.div className="authority-strip" variants={fadeUp}><Scale size={20} /><p>Nootaayada Marwaaz waxay oggolaansho rasmi ah ka haysaa <strong>Wasaaradda Caddaaladda iyo Arrimaha Dastuurka</strong> ee Dowladda Federaalka Soomaaliya, iyo <strong>Wasaaradda Caddaaladda iyo Arrimaha Garsoorka</strong> ee Dowladda Koonfur Galbeed Soomaaliya. Xafiisku wuxuu furan yahay tan iyo sannadkii 2022.</p></motion.div>
+          <motion.div className="authority-strip" variants={fadeUp}><Scale size={20} /><p>Nootaayo Marwaaz waxay oggolaansho rasmi ah ka haysaa <strong>Wasaaradda Caddaaladda iyo Arrimaha Dastuurka</strong> ee Dowladda Federaalka Soomaaliya, iyo <strong>Wasaaradda Caddaaladda iyo Arrimaha Garsoorka</strong> ee Dowladda Koonfur Galbeed Soomaaliya. Xafiisku wuxuu furan yahay tan iyo sannadkii 2022.</p></motion.div>
           <motion.div className="values" variants={fadeUp}>{["Daacadnimo", "Xirfad", "Ilaalinta Sirta", "Saxnaan", "Daahfurnaan", "Qanacsanaanta Macmiilka"].map((value) => <span key={value}><Check size={14} />{value}</span>)}</motion.div><motion.a className="text-link" href="#services" variants={fadeUp}>Eeg adeegyadayada <ArrowRight size={16} /></motion.a>
         </motion.div>
       </section>
@@ -292,7 +292,7 @@ export default function Home() {
       </section>
 
       <section className="section process-section">
-        <SectionHeading eyebrow="HABRAACA ADEEGGA" title="Afar Tallaabo oo Fudud oo Nootaayadu Qaaddo" copy="Habraaca shaqo ee Nootaayada Marwaaz wuxuu u dhisan yahay si hufan oo aad tallaabo kasta ugu kalsoonaato." index="02" />
+        <SectionHeading eyebrow="HABRAACA ADEEGGA" title="Afar Tallaabo oo Fudud oo Nootaayadu Qaaddo" copy="Habraaca shaqo ee Nootaayo Marwaaz wuxuu u dhisan yahay si hufan oo aad tallaabo kasta ugu kalsoonaato." index="02" />
         <div className="process-grid">{steps.map((step, index) => { const Icon = step.icon; return <motion.div className="process-step" key={step.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ delay: index * 0.1, duration: 0.45 }}><span className="process-number">{String(index + 1).padStart(2, "0")}</span><span className="process-icon"><Icon size={22} /></span><h3>{step.title}</h3><p>{step.description}</p></motion.div>; })}</div>
       </section>
 
@@ -359,13 +359,13 @@ export default function Home() {
         <div className="cta-pattern" aria-hidden="true" />
         <motion.div className="cta-content" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.6 }}>
           <span className="eyebrow light"><span />DIYAAR MA U TAHAY?</span>
-          <h2>Dukumentigaaga maanta u keen Nootaayada Marwaaz.</h2>
+          <h2>Dukumentigaaga maanta u keen Nootaayo Marwaaz.</h2>
           <p>Kooxdayadu waxay diyaar u tahay inay kaa caawiso tallaabo kasta — booqasho, ballan ama xaqiijinta dukumentiga.</p>
           <div className="cta-actions"><a className="button button-gold" href="#nala-xiriir"><Phone size={18} />Nala Soo Xiriir</a><a className="button button-ghost" href="https://wa.me/252613536363" target="_blank" rel="noreferrer"><MessageCircle size={18} />WhatsApp</a></div>
         </motion.div>
       </section>
 
-      <section id="contact" className="contact-section"><div className="contact-map"><iframe title="Khariidadda Xafiiska Marwaaz Public Notary, Baydhabo" src="https://www.google.com/maps?q=Marwaaz+Public+Notary%2C+Baidoa%2C+Somalia&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div><div className="contact-panel"><span className="eyebrow light"><span />BOOQASHADA XAFIISKA</span><h2>Booqashada Xafiiska Nootaayada Marwaaz Ee Magaalada Baydhabo</h2><div className="contact-list"><div><MapPin /><span><small>Goobta Xafiiska</small><strong>Marwaaz Public Notary</strong><p>Nawaaxiga Ex-Dahabshiil, ka soo horjeedka Huteel Baydhabo, Baydhabo, Soomaaliya</p></span></div><div><Phone /><span><small>Telefoonka Xafiiska</small><a href="tel:+252617414141">+252 617 414141</a> / <a href="tel:+252613536363">+252 613 536 363</a></span></div><div><Mail /><span><small>Iimaylka Rasmiga Ah</small><a href="mailto:marwaaznotary@gmail.com">marwaaznotary@gmail.com</a></span></div><div><Clock3 /><span><small>Saacadaha Shaqada</small><strong>Sabti – Khamiis</strong><p>7:30 subaxnimo – 7:30 fiidnimo</p></span></div></div><div className="contact-actions"><a className="button button-gold" href="tel:+252617414141"><Phone size={18} />Wac Hadda</a><a className="button button-ghost" href="https://wa.me/252613536363" target="_blank" rel="noreferrer"><MessageCircle size={18} />WhatsApp</a><a className="button button-ghost" href="https://maps.app.goo.gl/omXFTvfkovNYNtdn8" target="_blank" rel="noreferrer"><Navigation size={18} />Jihada Khariidadda</a></div></div></section>
+      <section id="contact" className="contact-section"><div className="contact-map"><iframe title="Khariidadda Xafiiska Marwaaz Public Notary, Baydhabo" src="https://www.google.com/maps?q=Marwaaz+Public+Notary%2C+Baidoa%2C+Somalia&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div><div className="contact-panel"><span className="eyebrow light"><span />BOOQASHADA XAFIISKA</span><h2>Booqashada Xafiiska Nootaayo Marwaaz Ee Magaalada Baydhabo</h2><div className="contact-list"><div><MapPin /><span><small>Goobta Xafiiska</small><strong>Marwaaz Public Notary</strong><p>Nawaaxiga Ex-Dahabshiil, ka soo horjeedka Huteel Baydhabo, Baydhabo, Soomaaliya</p></span></div><div><Phone /><span><small>Telefoonka Xafiiska</small><a href="tel:+252617414141">+252 617 414141</a> / <a href="tel:+252613536363">+252 613 536 363</a></span></div><div><Mail /><span><small>Iimaylka Rasmiga Ah</small><a href="mailto:marwaaznotary@gmail.com">marwaaznotary@gmail.com</a></span></div><div><Clock3 /><span><small>Saacadaha Shaqada</small><strong>Sabti – Khamiis</strong><p>7:30 subaxnimo – 7:30 fiidnimo</p></span></div></div><div className="contact-actions"><a className="button button-gold" href="tel:+252617414141"><Phone size={18} />Wac Hadda</a><a className="button button-ghost" href="https://wa.me/252613536363" target="_blank" rel="noreferrer"><MessageCircle size={18} />WhatsApp</a><a className="button button-ghost" href="https://maps.app.goo.gl/omXFTvfkovNYNtdn8" target="_blank" rel="noreferrer"><Navigation size={18} />Jihada Khariidadda</a></div></div></section>
 
       <footer><div className="footer-main"><div className="footer-brand"><a className="brand" href="#top"><span className="brand-mark"><img src="/logo.png" alt="" /></span><span><strong>MARWAAZ</strong><small>PUBLIC NOTARY</small></span></a><p>Adeeg sharci oo rasmi ah, lagu kalsoonaan karo, oo loogu talagalay shaqsiyaadka, ganacsiyada iyo hay'adaha ku sugan Baydhabo.</p><div className="social-links"><a href="https://www.facebook.com/share/1DdrxRCNqt/" target="_blank" rel="noreferrer" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div></div><div><h3>Xiriirinta Degdega Ah</h3><a href="#about">Nagu Saabsan</a><a href="#services">Adeegyada</a><a href="#team">Kooxda</a><a href="#contact">Xiriir</a></div><div><h3>Adeegyada Macmiilka</h3><a href="#appointment">Ballamaha</a><a href="#verify">Xaqiijinta Dukumentiga</a><a href="#services">Nuqullo La Xaqiijiyey</a><a href="#services">La-talin Sharci</a></div><div><h3>Xiriir</h3><span>Baydhabo, Soomaaliya</span><a href="tel:+252617414141">+252 617 414141</a> · <a href="tel:+252613536363">+252 613 536 363</a><a href="mailto:marwaaznotary@gmail.com">marwaaznotary@gmail.com</a><span>Sabti – Khamiis, 7:30 subaxnimo – 7:30 fiidnimo</span></div></div><div className="footer-bottom"><span>© 2026 Marwaaz Public Notary. Dhammaan Xuquuqda Way Dhowran Yihiin.</span><div><a href="#">Siyaasadda Sirta</a><a href="#">Shuruudaha Adeegga</a></div></div></footer>
     </main>
