@@ -202,7 +202,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Notary",
     name: "Nootaayo Marwaaz Baydhabo",
-    alternateName: ["Marwaaz Public Notary", "Nootaayo Marwaaz", "Nootaayada Ugu Fiican Baydhabo", "Marwaaz Notary"],
+    alternateName: ["Marwaaz Public Notary", "Nootaayo Marwaaz", "Nootaayada Marwaaz", "Nootaayada Ugu Fiican Baydhabo", "Marwaaz Notary"],
     url: "https://marwaazpn.com",
     logo: "https://marwaazpn.com/logo.png",
     image: "https://marwaazpn.com/og.png",
