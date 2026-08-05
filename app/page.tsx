@@ -198,7 +198,39 @@ export default function Home() {
   };
 
   const activeTestimonial = testimonials[testimonial];
-  const jsonLd = { "@context": "https://schema.org", "@type": "Notary", name: "Marwaaz Public Notary", description: "Professional public notary services in Baidoa, Somalia.", telephone: "+252617414141", address: { "@type": "PostalAddress", addressLocality: "Baidoa", addressCountry: "SO" }, openingHours: "Sa-Th 07:30-19:30", areaServed: "Baidoa, Somalia" };
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Notary",
+    name: "Nootaayada Marwaaz Baydhabo",
+    alternateName: ["Marwaaz Public Notary", "Nootaayo Marwaaz", "Nootaayada Ugu Fiican Baydhabo", "Marwaaz Notary"],
+    url: "https://marwaazpn.com",
+    logo: "https://marwaazpn.com/logo.png",
+    image: "https://marwaazpn.com/og.png",
+    description: "Nootaayada Marwaaz waa nootaayada ugu fiican Baydhabo. Waxaan bixinnaa adeegyada rasmiga ah ee nootaayada, kala wareejinta hantida, dhulka, baabuurta iyo heshiisyada sharciga ah ee Baydhabo, Soomaaliya.",
+    telephone: "+252617414141",
+    sameAs: [
+      "https://www.facebook.com/share/1DdrxRCNqt/"
+    ],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Nawaaxiga Ex-Dahabshiil, ka soo horjeedka Huteel Baydhabo",
+      addressLocality: "Baidoa",
+      addressRegion: "Bay",
+      addressCountry: "SO"
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+        opens: "07:30",
+        closes: "19:30"
+      }
+    ],
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Baidoa, Somalia"
+    }
+  };
 
   return (
     <main>
@@ -226,7 +258,7 @@ export default function Home() {
         <motion.div className="hero-content" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
           <motion.div className="trust-chip" variants={fadeUp}><BadgeCheck size={17} /> Rasmi • Sugan • Lagu Kalsoonaan Karo</motion.div>
           <motion.p className="hero-kicker" variants={fadeUp}>Nootaayada Dadweynaha · Baydhabo, Soomaaliya · Tan iyo 2022</motion.p>
-          <motion.h1 variants={fadeUp}>Dukumentigaaga.<br /><em>Xuquuqdaada. Kalsoonidaada.</em></motion.h1>
+          <motion.h1 variants={fadeUp}>Nootaayada Marwaaz Baydhabo.<br /><em>Nootaayada Ugu Fiican & Lagu Kalsoonaan Karo.</em></motion.h1>
           <motion.p className="hero-copy" variants={fadeUp}>Waxaan si sharci waafaqsan u diyaarinaa, u xaqiijinnaa una sugnaa heshiisyada, kala wareejinta hantida iyo mucaamalaadka muhiimka ah.</motion.p>
           <motion.div className="hero-actions" variants={fadeUp}><a className="button button-gold" href="#nala-xiriir"><Phone size={19} />Nala Soo Xiriir</a><a className="button button-ghost" href="#verify"><QrCode size={19} />Xaqiiji Dukumenti</a></motion.div>
         </motion.div>
