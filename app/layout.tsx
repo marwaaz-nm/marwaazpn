@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const origin = `${protocol}://${host}`;
   return {
     metadataBase: new URL(origin),
-    title: "Nootaayada Marwaaz Baydhabo | Nootaayada Ugu Fiican Baydhabo | Marwaaz Public Notary",
+    title: "Nootaayada Marwaaz",
     description: "Nootaayada Marwaaz waa nootaayada ugu fiican Baydhabo. Waxaan bixinnaa adeegyada rasmiga ah ee nootaayada, kala wareejinta hantida, dhulka, baabuurta iyo heshiisyada sharciga ah ee Baydhabo, Soomaaliya.",
     keywords: [
       "marwaaz",
@@ -28,13 +28,13 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: "website",
       url: origin,
-      siteName: "Nootaayada Marwaaz Baydhabo",
-      title: "Nootaayada Marwaaz | Nootaayada Ugu Fiican Baydhabo",
+      siteName: "Nootaayada Marwaaz",
+      title: "Nootaayada Marwaaz",
       description: "Adeegyada rasmiga ah ee Nootaayada Marwaaz — Baydhabo, Soomaaliya. Kala wareejinta hantida, diyaarinta heshiisyada iyo sharciyeynta.",
       locale: "so_SO",
-      images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Nootaayada Marwaaz Baydhabo" }]
+      images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Nootaayada Marwaaz" }]
     },
-    twitter: { card: "summary_large_image", title: "Nootaayada Marwaaz | Baydhabo", description: "Nootaayada ugu fiican Baydhabo — Marwaaz Public Notary", images: [`${origin}/og.png`] },
+    twitter: { card: "summary_large_image", title: "Nootaayada Marwaaz", description: "Nootaayada Marwaaz — Baydhabo, Soomaaliya", images: [`${origin}/og.png`] },
     robots: { index: true, follow: true },
   };
 }

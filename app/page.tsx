@@ -258,7 +258,7 @@ export default function Home() {
         <motion.div className="hero-content" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
           <motion.div className="trust-chip" variants={fadeUp}><BadgeCheck size={17} /> Rasmi • Sugan • Lagu Kalsoonaan Karo</motion.div>
           <motion.p className="hero-kicker" variants={fadeUp}>Nootaayada Dadweynaha · Baydhabo, Soomaaliya · Tan iyo 2022</motion.p>
-          <motion.h1 variants={fadeUp}>Nootaayada Marwaaz Baydhabo.<br /><em>Nootaayada Ugu Fiican & Lagu Kalsoonaan Karo.</em></motion.h1>
+          <motion.h1 variants={fadeUp}>Nootaayada Marwaaz.<br /><em>Xuquuqdaada. Kalsoonidaada.</em></motion.h1>
           <motion.p className="hero-copy" variants={fadeUp}>Waxaan si sharci waafaqsan u diyaarinaa, u xaqiijinnaa una sugnaa heshiisyada, kala wareejinta hantida iyo mucaamalaadka muhiimka ah.</motion.p>
           <motion.div className="hero-actions" variants={fadeUp}><a className="button button-gold" href="#nala-xiriir"><Phone size={19} />Nala Soo Xiriir</a><a className="button button-ghost" href="#verify"><QrCode size={19} />Xaqiiji Dukumenti</a></motion.div>
         </motion.div>
