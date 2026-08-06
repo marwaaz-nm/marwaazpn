@@ -143,6 +143,7 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
 
 export default function Home() {
   const [dark, setDark] = useState(false);
+  const [lang, setLang] = useState<"so" | "en">("so");
   const [menuOpen, setMenuOpen] = useState(false);
   const [verificationRef, setVerificationRef] = useState("");
   const [verification, setVerification] = useState<VerificationState>(null);
@@ -156,7 +157,18 @@ export default function Home() {
     const shouldUseDark = window.localStorage.getItem("marwaaz-theme") === "dark";
     setDark(shouldUseDark);
     document.documentElement.dataset.theme = shouldUseDark ? "dark" : "light";
+    const savedLang = window.localStorage.getItem("marwaaz-lang") as "so" | "en";
+    if (savedLang === "so" || savedLang === "en") {
+      setLang(savedLang);
+    }
   }, []);
+
+  const changeLang = (newLang: "so" | "en") => {
+    setLang(newLang);
+    window.localStorage.setItem("marwaaz-lang", newLang);
+  };
+
+  const t = (so: string, en: string) => (lang === "so" ? so : en);
 
   useEffect(() => {
     const onScroll = () => {
@@ -248,20 +260,35 @@ export default function Home() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Marwaaz Public Notary home"><span className="brand-mark"><img src="/logo.png" alt="" /></span><span><strong>MARWAAZ</strong><small>PUBLIC NOTARY</small></span></a>
         <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Hagaha bogga">
-          {[["Nagu Saabsan", "about"], ["Adeegyada", "services"], ["Xaqiijin", "verify"], ["Kooxda", "team"], ["Xiriir", "contact"]].map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}
-          <a className="nav-appointment" href="#nala-xiriir" onClick={() => setMenuOpen(false)}>Nala Soo Xiriir</a>
+          {[
+            [t("Nagu Saabsan", "About"), "about"],
+            [t("Adeegyada", "Services"), "services"],
+            [t("Xaqiijin", "Verify"), "verify"],
+            [t("Kooxda", "Team"), "team"],
+            [t("Xiriir", "Contact"), "contact"],
+          ].map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}
+          <a className="nav-appointment" href="#nala-xiriir" onClick={() => setMenuOpen(false)}>{t("Nala Soo Xiriir", "Contact Us")}</a>
         </nav>
-        <div className="header-actions"><button className="icon-button" onClick={toggleTheme} aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}>{dark ? <Sun size={19} /> : <Moon size={19} />}</button><button className="icon-button menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation" aria-expanded={menuOpen}>{menuOpen ? <X size={21} /> : <Menu size={21} />}</button></div>
+        <div className="header-actions">
+          <div className="lang-picker" aria-label="Language selector">
+            <Languages size={15} />
+            <button className={`lang-option ${lang === "so" ? "active" : ""}`} onClick={() => changeLang("so")} aria-label="Soomaali">SO</button>
+            <span className="lang-divider">|</span>
+            <button className={`lang-option ${lang === "en" ? "active" : ""}`} onClick={() => changeLang("en")} aria-label="English">ENG</button>
+          </div>
+          <button className="icon-button" onClick={toggleTheme} aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}>{dark ? <Sun size={19} /> : <Moon size={19} />}</button>
+          <button className="icon-button menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation" aria-expanded={menuOpen}>{menuOpen ? <X size={21} /> : <Menu size={21} />}</button>
+        </div>
       </header>
 
       <section id="top" className="hero">
         <div className="hero-grid" aria-hidden="true" />
         <motion.div className="hero-content" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
-          <motion.div className="trust-chip" variants={fadeUp}><BadgeCheck size={17} /> Rasmi • Sugan • Lagu Kalsoonaan Karo</motion.div>
-          <motion.p className="hero-kicker" variants={fadeUp}>Nootaayada Dadweynaha · Baydhabo, Soomaaliya · Tan iyo 2022</motion.p>
-          <motion.h1 variants={fadeUp}>Nootaayo Marwaaz.<br /><em>Xuquuqdaada. Kalsoonidaada.</em></motion.h1>
-          <motion.p className="hero-copy" variants={fadeUp}>Waxaan si sharci waafaqsan u diyaarinaa, u xaqiijinnaa una sugnaa heshiisyada, kala wareejinta hantida iyo mucaamalaadka muhiimka ah.</motion.p>
-          <motion.div className="hero-actions" variants={fadeUp}><a className="button button-gold" href="#nala-xiriir"><Phone size={19} />Nala Soo Xiriir</a><a className="button button-ghost" href="#verify"><QrCode size={19} />Xaqiiji Dukumenti</a></motion.div>
+          <motion.div className="trust-chip" variants={fadeUp}><BadgeCheck size={17} /> {t("Rasmi • Sugan • Lagu Kalsoonaan Karo", "Official • Secure • Trusted")}</motion.div>
+          <motion.p className="hero-kicker" variants={fadeUp}>{t("Nootaayada Dadweynaha · Baydhabo, Soomaaliya · Tan iyo 2022", "Public Notary · Baidoa, Somalia · Since 2022")}</motion.p>
+          <motion.h1 variants={fadeUp}>{t("Nootaayo Marwaaz.", "Marwaaz Notary.")}<br /><em>{t("Xuquuqdaada. Kalsoonidaada.", "Your Rights. Your Trust.")}</em></motion.h1>
+          <motion.p className="hero-copy" variants={fadeUp}>{t("Waxaan si sharci waafaqsan u diyaarinaa, u xaqiijinnaa una sugnaa heshiisyada, kala wareejinta hantida iyo mucaamalaadka muhiimka ah.", "We legally prepare, verify, and secure agreements, property transfers, and official legal transactions.")}</motion.p>
+          <motion.div className="hero-actions" variants={fadeUp}><a className="button button-gold" href="#nala-xiriir"><Phone size={19} />{t("Nala Soo Xiriir", "Contact Us")}</a><a className="button button-ghost" href="#verify"><QrCode size={19} />{t("Xaqiiji Dukumenti", "Verify Document")}</a></motion.div>
         </motion.div>
         <motion.aside className="hero-assurance glass-card" initial={{ opacity: 0, x: 35 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.55, duration: 0.8 }}>
           <div className="assurance-seal"><span className="seal-ring"><ShieldCheck size={37} /></span><span>MARWAAZ<small>RASMI AHAAN LOO AQOONSAN YAHAY</small></span></div><div className="rating-badge"><span className="stars-row">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={12} fill="currentColor" />)}</span><span>4.9/5 · 500+ qiimeyn caddayn ah</span></div><div><span className="live-dot" />Nidaamka xaqiijinta dukumentiyada waa diyaar</div><p>Dukumenti kasta oo diiwaangashan waxaa lagu hubin karaa lambarkiisa gaarka ah.</p><a href="#verify">Hubi tixraaca <ArrowRight size={15} /></a>
