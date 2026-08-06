@@ -50,3 +50,5 @@ footer{padding:70px max(30px,calc((100vw - 1160px)/2)) 24px;color:#bdc9d6;backgr
 @keyframes pulse-ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
 @media(max-width:580px){.float-actions{right:14px;bottom:16px;gap:9px}.float-btn{width:46px;height:46px}.motto-ribbon{padding:36px 22px}.process-grid{grid-template-columns:1fr}.cta-banner{padding:56px 22px}.requirements-grid,.requirement-notes{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+.developer-link{color:var(--gold-light);font-weight:600;text-decoration:underline;text-underline-offset:3px;transition:color .2s}.developer-link:hover{color:#fff}
+
