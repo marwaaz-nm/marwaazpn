@@ -72,3 +72,13 @@ footer{padding:70px max(30px,calc((100vw - 1160px)/2)) 24px;color:#bdc9d6;backgr
 
 
 
+
+.document-portal { padding: 2rem; }
+.document-portal h3 { font-size: 1.5rem; margin: 1rem 0; }
+.document-portal p { line-height: 1.7; margin: 1rem 0; font-size: 1rem; }
+.document-portal form { display: grid; gap: 1rem; margin: 1.5rem 0; }
+.document-portal label { font-size: 1rem; }
+.document-portal input { width: 100%; min-width: 0; background: #fff; color: #14233b; border: 2px solid #b4bfd0; border-radius: .5rem; padding: .85rem; font-size: 1rem; }
+.document-portal input:focus-visible { outline: 3px solid #eab308; outline-offset: 3px; }
+.document-portal button:disabled { opacity: .6; cursor: not-allowed; }
+.document-portal .text-link { color: #f2cb65; }

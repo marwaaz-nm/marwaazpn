@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, animate, motion, useInView, useMotionValue, useTransform } from "framer-motion";
-import { QRCodeSVG } from "qrcode.react";
+import DocumentPortal from "./DocumentPortal";
 import {
   ArrowRight, ArrowUp, Award, BadgeCheck, BriefcaseBusiness, Building2, CalendarCheck2,
   Check, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock3,
@@ -98,7 +98,7 @@ const reasons: { title: { so: string; en: string }; description: { so: string; e
   { title: { so: "Dhammaystir Degdeg Ah", en: "Fast Execution" }, description: { so: "Waan dhowrnaa waqtigaaga macnaha leh, tayada adeeggana kama tanaasulno.", en: "We respect your valuable time without compromising on legal quality." }, icon: Clock3 },
   { title: { so: "Xafidaad iyo Dhowrid Sugan", en: "Secure Archive & Protection" }, description: { so: "Dukumentiyadaada iyo warqadahaaga rasmiga ah waxaan u xafidnaa si sugan.", en: "Your official documents and legal records are safely archived." }, icon: LockKeyhole },
   { title: { so: "Koox Sharci oo Khibrad Leh", en: "Experienced Legal Team" }, description: { so: "Waxaad ka helaysaa la-talin sharci, hagid toos ah iyo ixtiraam sare.", en: "Get expert legal consultation, direct guidance, and utmost professional respect." }, icon: UserRoundCheck },
-  { title: { so: "Xaqiijinta Nidaamka Casriga Ah", en: "Modern System Verification" }, description: { so: "Dukumenti kasta waxaad ku xaqiijin kartaa lambarkiisa tixraaca ama Koodhka QR-ka.", en: "Verify any document instantly using its reference number or QR code." }, icon: ScanLine },
+  { title: { so: "Xaqiijinta Nidaamka Casriga Ah", en: "Modern System Verification" }, description: { so: "Xafiiska ka codso koodh gaar ah oo lagu helo nuqulka warqaddaada.", en: "Request a private code from the office to access your document copy." }, icon: ScanLine },
   { title: { so: "Habraac Sharci oo Rasmi Ah", en: "Official Legal Procedure" }, description: { so: "Dhawrida heshiisyada iyo mucaamalaadka oo dhan waxaa loo fuliyaa si sharciga waafaqsan.", en: "All contracts and transactions strictly follow legal requirements." }, icon: Landmark },
   { title: { so: "Ilaalinta iyo Dhowrida Sirta", en: "Confidentiality & Privacy" }, description: { so: "Xogtaada iyo dukumentiyadaada waxaan u xafidnaa si qarsoodi ah oo ammaan ah.", en: "Your personal data and documents are treated with utmost privacy." }, icon: Shield },
   { title: { so: "Garab-staag iyo Taageero Joogto Ah", en: "Continuous Client Support" }, description: { so: "Waan ku garab taagannahay ka hor, inta lagu jiro iyo ka dib dhammaystirka adeegga.", en: "We support you before, during, and after service completion." }, icon: Headphones },
@@ -153,7 +153,6 @@ function initials(name: string) {
   return name.split(" ").filter(Boolean).slice(0, 2).map((word) => word[0]).join("").toUpperCase();
 }
 
-type VerificationState = "valid" | "invalid" | null;
 type OfficeStatus = { open: boolean; time: string };
 
 const fadeUp = {
@@ -191,13 +190,10 @@ export default function Home() {
   const [dark, setDark] = useState(false);
   const [lang, setLang] = useState<Lang>("so");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [verificationRef, setVerificationRef] = useState("");
-  const [verification, setVerification] = useState<VerificationState>(null);
   const [testimonial, setTestimonial] = useState(0);
   const [officeStatus, setOfficeStatus] = useState<OfficeStatus | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const scannerRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const shouldUseDark = window.localStorage.getItem("marwaaz-theme") === "dark";
@@ -206,11 +202,13 @@ export default function Home() {
     const savedLang = window.localStorage.getItem("marwaaz-lang") as Lang;
     if (savedLang === "so" || savedLang === "en") {
       setLang(savedLang);
+      document.documentElement.lang = savedLang;
     }
   }, []);
 
   const changeLang = (newLang: Lang) => {
     setLang(newLang);
+    document.documentElement.lang = newLang;
     window.localStorage.setItem("marwaaz-lang", newLang);
   };
 
@@ -250,10 +248,6 @@ export default function Home() {
     window.localStorage.setItem("marwaaz-theme", next ? "dark" : "light");
   };
 
-  const verify = () => {
-    const normalized = verificationRef.trim().toUpperCase();
-    setVerification(normalized === "MNP-2026-04141" || normalized === "MZ-04141" ? "valid" : "invalid");
-  };
 
   const activeTestimonial = testimonials[testimonial];
   const jsonLd = {
@@ -339,8 +333,8 @@ export default function Home() {
         <motion.aside className="hero-assurance glass-card" initial={{ opacity: 0, x: 35 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.55, duration: 0.8 }}>
           <div className="assurance-seal"><span className="seal-ring"><ShieldCheck size={37} /></span><span>MARWAAZ<small>{t("RASMI AHAAN LOO AQOONSAN YAHAY", "OFFICIALLY RECOGNIZED")}</small></span></div>
           <div className="rating-badge"><span className="stars-row">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={12} fill="currentColor" />)}</span><span>{t("4.9/5 · 500+ qiimeyn caddayn ah", "4.9/5 · 500+ verified reviews")}</span></div>
-          <div><span className="live-dot" />{t("Nidaamka xaqiijinta dukumentiyada waa diyaar", "Document verification system ready")}</div>
-          <p>{t("Dukumenti kasta oo diiwaangashan waxaa lagu hubin karaa lambarkiisa gaarka ah.", "Every registered document can be verified using its unique reference number.")}</p>
+          <div><span className="live-dot" />{t("Warqadaha iyo adeegyada macaamiisha", "Client documents and services")}</div>
+          <p>{t("Nuqulka warqaddaada iyo koodhka gaarka ah ka codso xafiiska.", "Request your document copy and private code from the office.")}</p>
           <a href="#verify">{t("Hubi tixraaca", "Check reference")} <ArrowRight size={15} /></a>
         </motion.aside>
         <a href="#about" className="scroll-cue" aria-label="Hoos ugu gudub"><span>{t("Sii eeg", "Explore")}</span><ChevronDown size={19} /></a>
@@ -477,26 +471,16 @@ export default function Home() {
 
       <section id="verify" className="section verification-section">
         <div className="verification-copy">
-          <span className="eyebrow light"><span />{t("MARDHOW • COMING SOON", "COMING SOON")}</span>
-          <h2>{t("Xaqiijinta Dukumentiyada Onlaynka Ah (Mardhow)", "Online Document Verification Portal (Coming Soon)")}</h2>
-          <p>{t("Nidaamka casriga ah ee lagu xaqiijinayo dukumentiyada rasmiga ah ee Marwaaz wuxuu ku jiraa habayn ama diyaarinta u dambaysa (Mardhow ayaa si toos ah loo furi doonaa).", "The modern online document verification portal of Marwaaz is undergoing final development and will be launched soon.")}</p>
+          <span className="eyebrow light"><span />{t("WARQADAHA MACAAMIISHA", "CLIENT DOCUMENTS")}</span>
+          <h2>{t("Warqaddaada rasmiga ah, nuqul PDF ah.", "Your official document, as a PDF.")}</h2>
+          <p>{t("Xafiiska Marwaaz ka hel koodhkaaga gaarka ah. Marka warqadda la kaydiyo oo adeeggu furan yahay, halkan ayaad nuqulkaaga ka soo dejisan kartaa.", "Get your private code from the Marwaaz office. Once your document is archived and the service is available, download your copy here.")}</p>
           <ul>
-            <li><CheckCircle2 size={18} />{t("Nidaam casri ah oo QR leh", "Modern QR code lookup system")}</li>
-            <li><CheckCircle2 size={18} />{t("Diiwaangelin sugan oo toos ah", "Secure database logging")}</li>
-            <li><CheckCircle2 size={18} />{t("Xaqiijinta tixraaca rasmiga ah", "Instant reference ID verification")}</li>
+            <li><CheckCircle2 size={18} />{t("Koodh gaar ah oo xafiisku bixiyo", "Private code issued by the office")}</li>
+            <li><CheckCircle2 size={18} />{t("Nuqulka warqadda la kaydiyey", "Copy of your archived document")}</li>
+            <li><CheckCircle2 size={18} />{t("Taageerada xafiiska haddii aad koodhka weydo", "Office assistance if you lose your code")}</li>
           </ul>
         </div>
-        <div className="verification-console glass-card" style={{ textAlign: 'center', padding: '3.5rem 2rem' }}>
-          <div className="status-badge closed" style={{ display: 'inline-flex', marginBottom: '1.5rem' }}>
-            <span className="status-dot" style={{ background: '#f59e0b' }} />
-            <strong>{t("MARDHOW (COMING SOON)", "COMING SOON")}</strong>
-          </div>
-          <ScanLine size={48} style={{ margin: '0 auto 1.25rem', color: '#eab308' }} />
-          <h3 style={{ fontSize: '1.4rem', fontWeight: 600, marginBottom: '0.75rem' }}>{t("Adeegga Xaqiijinta Onlaynka Ah Wuu Soo Socdaa", "Online Document Verification Service Coming Soon")}</h3>
-          <p style={{ opacity: 0.85, fontSize: '0.95rem', maxWidth: '420px', margin: '0 auto', lineHeight: 1.6 }}>
-            {t("Kooxdayada IT-ga waxay ku guda jirtaa dhismaha nidaamka xaqiijinta Koodhka QR-ka iyo tixraaca rasmiga ah. Mardhow ayaad si toos ah ugu hubin kartaa dukumentiyadaada halkan.", "Our IT team is currently building the QR code verification portal. Soon you will be able to verify your documents directly here.")}
-          </p>
-        </div>
+        <DocumentPortal lang={lang} />
       </section>
 
       <section id="nala-xiriir" className="section appointment-section">
@@ -628,7 +612,7 @@ export default function Home() {
           </div>
           <div>
             <h3>{t("Adeegyada Macmiilka", "Client Services")}</h3>
-            <a href="#appointment">{t("Ballamaha", "Appointments")}</a>
+            <a href="#nala-xiriir">{t("Ballamaha", "Appointments")}</a>
             <a href="#verify">{t("Xaqiijinta Dukumentiga", "Document Verification")}</a>
             <a href="#services">{t("Nuqullo La Xaqiijiyey", "Certified Copies")}</a>
             <a href="#services">{t("La-talin Sharci", "Legal Advice")}</a>

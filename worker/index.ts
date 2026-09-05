@@ -1,3 +1,4 @@
+import { documents } from "../lib/documents";
 /** Cloudflare Worker entry point for the vinext-starter template. */
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
@@ -6,6 +7,7 @@ type Fetcher = any;
 type D1Database = any;
 
 interface Env {
+  MARWAAZ_DOCUMENTS_ENABLED?: string;
   ASSETS: Fetcher;
   DB: D1Database;
   IMAGES: {
@@ -31,6 +33,7 @@ interface ExecutionContext {
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+    if (url.pathname === "/api/documents") return documents(request, env.MARWAAZ_DOCUMENTS_ENABLED === "true");
 
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
