@@ -9,7 +9,7 @@ type Reference = { ref_number: string; subject: string; issue_date?: string; sur
 
 export default function VerificationView({ id }: { id: string }) {
   const [record, setRecord] = useState<Reference | null>(null); const [state, setState] = useState<'loading'|'ready'|'missing'|'error'>('loading');
-  useEffect(() => { fetch(`/api/verify/${encodeURIComponent(id)}`, { cache: 'no-store' }).then(async response => { if (!response.ok) { setState(response.status === 404 ? 'missing' : 'error'); return; } const data = await response.json(); setRecord(data.reference); setState('ready'); }).catch(() => setState('error')); }, [id]);
+  useEffect(() => { fetch(`https://app.marwaazpn.com/api/public/references/${encodeURIComponent(id)}`, { cache: 'no-store' }).then(async response => { if (!response.ok) { setState(response.status === 404 ? 'missing' : 'error'); return; } const data = await response.json(); setRecord(data.reference); setState('ready'); }).catch(() => setState('error')); }, [id]);
   const survey = record?.surveys; const hasMap = Boolean(survey?.polygon_boundary || survey?.gps_location);
   return <main className="verify-page"><div className="verify-shell">
     <div className="verify-topbar"><Link className="verify-brand" href="/"><img src="/logo.png" alt="Nootaayo Marwaaz" /><span><strong>NOOTAAYO MARWAAZ</strong><span>Public Notary · Baydhabo</span></span></Link><Link className="verify-back" href="/#verify"><ArrowLeft size={15}/> Dib u noqo</Link></div>
