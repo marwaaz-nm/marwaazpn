@@ -11,7 +11,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
   const value = decodeURIComponent(id).trim().replace(/\s+/g, '');
   if (!UUID.test(value) && !SHEET.test(value)) return NextResponse.json({ error: 'not_found' }, { status: 404, headers: responseHeaders });
   try {
-    const upstream = await fetch(`${ORIGIN}/api/public/references/${encodeURIComponent(value)}`, { cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(20000), headers: { Accept: 'application/json' } });
+    const upstream = await fetch(`${ORIGIN}/api/public/references/${encodeURIComponent(value)}`, { cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(60000), headers: { Accept: 'application/json' } });
     if (upstream.status === 404) return NextResponse.json({ error: 'not_found' }, { status: 404, headers: responseHeaders });
     if (upstream.status === 429) return NextResponse.json({ error: 'rate_limited' }, { status: 429, headers: responseHeaders });
     if (!upstream.ok || !upstream.headers.get('content-type')?.startsWith('application/json')) throw new Error('upstream');
