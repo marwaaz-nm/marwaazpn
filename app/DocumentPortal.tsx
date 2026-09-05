@@ -32,7 +32,7 @@ export default function DocumentPortal({ lang }: { lang: 'so' | 'en' }) {
       e.preventDefault(); if (!enabled || busy) return;
       const reference = sheetReference(code);
       if (reference) {
-        window.location.assign(`https://app.marwaazpn.com/verify/${encodeURIComponent(reference)}`);
+        window.location.assign(`/verify/${encodeURIComponent(reference)}`);
         return;
       }
       setBusy(true); setMessage('');
