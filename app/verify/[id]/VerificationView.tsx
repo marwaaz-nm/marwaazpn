@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeft, CalendarDays, FileCheck2, LoaderCircle, MapPinned, ShieldCheck, ShieldX } from 'lucide-react';
 const VerificationMap = dynamic(() => import('./VerificationMap'), { ssr: false });
 type Survey = { serial_no: number; survey_no?: string | null; neighborhood?: string; land_type?: string; sketch_area?: string; gps_location?: string; polygon_boundary?: string };
-type Reference = { ref_number: string; subject: string; issue_date?: string; surveys?: Survey | null };
+type Reference = { ref_number: string; subject?: string | null; issue_date?: string | null; surveys?: Survey | null; limited?: boolean };
 
 export default function VerificationView({ id }: { id: string }) {
   const [record, setRecord] = useState<Reference | null>(null); const [state, setState] = useState<'loading'|'ready'|'missing'|'error'>('loading');
@@ -18,7 +18,7 @@ export default function VerificationView({ id }: { id: string }) {
       {(state === 'missing'||state === 'error') && <div className="verify-state"><div><ShieldX size={38}/><strong>{state === 'missing'?'Warqaddan lama helin':'Adeegga hadda lama heli karo'}</strong><p>Fadlan reference-ka hubi ama la xiriir xafiiska.</p></div></div>}
       {state === 'ready' && record && <><div className="verify-success"><ShieldCheck size={21}/> Warqaddan waa sax waana ka diiwaangashan tahay Nootaayo Marwaaz</div><div className="verify-body">
         <div className="verify-reference"><span><FileCheck2 size={23}/></span><div><small>Official reference record</small><strong>{record.ref_number}</strong></div></div>
-        <div className="verify-grid"><div className="verify-field"><small>Ujeeddo</small><strong>{record.subject}</strong></div><div className="verify-field"><small>Taariikhda</small><strong><CalendarDays size={14} style={{verticalAlign:'middle',marginRight:6}}/>{record.issue_date?new Date(record.issue_date).toLocaleDateString('so-SO'):'-'}</strong></div></div>
+        {record.limited ? <div className="verify-private-note"><ShieldCheck size={21}/><div><strong>Xogta gaarka ah waa la ilaaliyey</strong><p>Reference-kan wuxuu caddeynayaa diiwaangelinta oo keliya. Faahfaahinta warqadda, survey-ga iyo map-ka waxay u baahan yihiin koodhka gaarka ah ama QR-ga xafiisku bixiyey.</p></div></div> : <div className="verify-grid"><div className="verify-field"><small>Ujeeddo</small><strong>{record.subject}</strong></div><div className="verify-field"><small>Taariikhda</small><strong><CalendarDays size={14} style={{verticalAlign:'middle',marginRight:6}}/>{record.issue_date?new Date(record.issue_date).toLocaleDateString('so-SO'):'-'}</strong></div></div>}
         {survey && <><h2 className="verify-section-title"><MapPinned size={17}/> Xogta survey-ga ku xiran</h2><div className="verify-grid"><div className="verify-field"><small>Survey Lr.</small><strong>{survey.survey_no||survey.serial_no}</strong></div><div className="verify-field"><small>Nooca dhulka</small><strong>{survey.land_type||'-'}</strong></div><div className="verify-field"><small>Xaafadda</small><strong>{survey.neighborhood||'-'}</strong></div><div className="verify-field"><small>Cabbirka</small><strong>{survey.sketch_area||'-'}</strong></div></div>{hasMap&&<div className="verify-map"><VerificationMap polygon={survey.polygon_boundary} gps={survey.gps_location}/></div>}</>}
       </div></>}
     </article>
